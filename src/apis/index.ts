@@ -1,3 +1,5 @@
+/* tslint:disable */
+/* eslint-disable */
 export * from './GlobalCustomerApi';
 export * from './ModuleAuthenticateApi';
 export * from './ModuleSsprApi';
