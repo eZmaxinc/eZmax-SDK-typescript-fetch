@@ -62,6 +62,9 @@ src/models/EzsigndocumentDeleteObjectV1Response.ts
 src/models/EzsigndocumentGetDownloadUrlV1Response.ts
 src/models/EzsigndocumentGetDownloadUrlV1ResponseAllOf.ts
 src/models/EzsigndocumentGetDownloadUrlV1ResponseMPayload.ts
+src/models/EzsigndocumentGetEzsignpagesV1Response.ts
+src/models/EzsigndocumentGetEzsignpagesV1ResponseAllOf.ts
+src/models/EzsigndocumentGetEzsignpagesV1ResponseMPayload.ts
 src/models/EzsigndocumentGetObjectV1Response.ts
 src/models/EzsigndocumentGetObjectV1ResponseAllOf.ts
 src/models/EzsigndocumentGetObjectV1ResponseMPayload.ts
@@ -72,7 +75,6 @@ src/models/EzsigndocumentGetWordsPositionsV1ResponseMPayload.ts
 src/models/EzsigndocumentRequest.ts
 src/models/EzsigndocumentRequestCompound.ts
 src/models/EzsigndocumentResponse.ts
-src/models/EzsigndocumentResponseAllOf.ts
 src/models/EzsigndocumentResponseCompound.ts
 src/models/EzsignfolderCreateObjectV1Request.ts
 src/models/EzsignfolderCreateObjectV1Response.ts
@@ -101,6 +103,7 @@ src/models/EzsignfoldersignerassociationGetObjectV1ResponseAllOf.ts
 src/models/EzsignfoldersignerassociationRequest.ts
 src/models/EzsignfoldersignerassociationRequestCompound.ts
 src/models/EzsignfoldersignerassociationRequestCompoundAllOf.ts
+src/models/EzsignpageResponse.ts
 src/models/EzsignsignatureCreateObjectV1Request.ts
 src/models/EzsignsignatureCreateObjectV1Response.ts
 src/models/EzsignsignatureCreateObjectV1ResponseAllOf.ts

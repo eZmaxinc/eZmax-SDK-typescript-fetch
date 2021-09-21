@@ -18,10 +18,6 @@ import {
     CommonAuditFromJSON,
     CommonAuditFromJSONTyped,
     CommonAuditToJSON,
-    EzsigndocumentResponseAllOf,
-    EzsigndocumentResponseAllOfFromJSON,
-    EzsigndocumentResponseAllOfFromJSONTyped,
-    EzsigndocumentResponseAllOfToJSON,
     FieldEEzsigndocumentStep,
     FieldEEzsigndocumentStepFromJSON,
     FieldEEzsigndocumentStepFromJSONTyped,
@@ -66,7 +62,7 @@ export interface EzsigndocumentResponse {
      */
     sEzsigndocumentName: string;
     /**
-     * The unique ID of the Ezsigntemplate
+     * The unique ID of the Ezsigndocument
      * @type {number}
      * @memberof EzsigndocumentResponse
      */

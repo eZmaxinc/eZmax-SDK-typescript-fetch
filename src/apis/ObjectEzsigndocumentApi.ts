@@ -36,6 +36,9 @@ import {
     EzsigndocumentGetDownloadUrlV1Response,
     EzsigndocumentGetDownloadUrlV1ResponseFromJSON,
     EzsigndocumentGetDownloadUrlV1ResponseToJSON,
+    EzsigndocumentGetEzsignpagesV1Response,
+    EzsigndocumentGetEzsignpagesV1ResponseFromJSON,
+    EzsigndocumentGetEzsignpagesV1ResponseToJSON,
     EzsigndocumentGetObjectV1Response,
     EzsigndocumentGetObjectV1ResponseFromJSON,
     EzsigndocumentGetObjectV1ResponseToJSON,
@@ -67,6 +70,10 @@ export interface EzsigndocumentGetChildrenV1Request {
 export interface EzsigndocumentGetDownloadUrlV1Request {
     pkiEzsigndocumentID: number;
     eDocumentType: EzsigndocumentGetDownloadUrlV1EDocumentTypeEnum;
+}
+
+export interface EzsigndocumentGetEzsignpagesV1Request {
+    pkiEzsigndocumentID: number;
 }
 
 export interface EzsigndocumentGetFormDataV1Request {
@@ -275,6 +282,42 @@ export class ObjectEzsigndocumentApi extends runtime.BaseAPI {
      */
     async ezsigndocumentGetDownloadUrlV1(requestParameters: EzsigndocumentGetDownloadUrlV1Request, initOverrides?: RequestInit): Promise<EzsigndocumentGetDownloadUrlV1Response> {
         const response = await this.ezsigndocumentGetDownloadUrlV1Raw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     * Retrieve an existing Ezsigndocument\'s Ezsignpages
+     */
+    async ezsigndocumentGetEzsignpagesV1Raw(requestParameters: EzsigndocumentGetEzsignpagesV1Request, initOverrides?: RequestInit): Promise<runtime.ApiResponse<EzsigndocumentGetEzsignpagesV1Response>> {
+        if (requestParameters.pkiEzsigndocumentID === null || requestParameters.pkiEzsigndocumentID === undefined) {
+            throw new runtime.RequiredError('pkiEzsigndocumentID','Required parameter requestParameters.pkiEzsigndocumentID was null or undefined when calling ezsigndocumentGetEzsignpagesV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/object/ezsigndocument/{pkiEzsigndocumentID}/getEzsignpages`.replace(`{${"pkiEzsigndocumentID"}}`, encodeURIComponent(String(requestParameters.pkiEzsigndocumentID))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => EzsigndocumentGetEzsignpagesV1ResponseFromJSON(jsonValue));
+    }
+
+    /**
+     * ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     * Retrieve an existing Ezsigndocument\'s Ezsignpages
+     */
+    async ezsigndocumentGetEzsignpagesV1(requestParameters: EzsigndocumentGetEzsignpagesV1Request, initOverrides?: RequestInit): Promise<EzsigndocumentGetEzsignpagesV1Response> {
+        const response = await this.ezsigndocumentGetEzsignpagesV1Raw(requestParameters, initOverrides);
         return await response.value();
     }
 

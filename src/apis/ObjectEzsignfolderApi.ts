@@ -50,6 +50,10 @@ export interface EzsignfolderGetChildrenV1Request {
     pkiEzsignfolderID: number;
 }
 
+export interface EzsignfolderGetFormsDataV1Request {
+    pkiEzsignfolderID: number;
+}
+
 export interface EzsignfolderGetObjectV1Request {
     pkiEzsignfolderID: number;
 }
@@ -170,6 +174,42 @@ export class ObjectEzsignfolderApi extends runtime.BaseAPI {
      */
     async ezsignfolderGetChildrenV1(requestParameters: EzsignfolderGetChildrenV1Request, initOverrides?: RequestInit): Promise<void> {
         await this.ezsignfolderGetChildrenV1Raw(requestParameters, initOverrides);
+    }
+
+    /**
+     * ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     * Retrieve an existing Ezsignfolder\'s forms data
+     */
+    async ezsignfolderGetFormsDataV1Raw(requestParameters: EzsignfolderGetFormsDataV1Request, initOverrides?: RequestInit): Promise<runtime.ApiResponse<Blob>> {
+        if (requestParameters.pkiEzsignfolderID === null || requestParameters.pkiEzsignfolderID === undefined) {
+            throw new runtime.RequiredError('pkiEzsignfolderID','Required parameter requestParameters.pkiEzsignfolderID was null or undefined when calling ezsignfolderGetFormsDataV1.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // Authorization authentication
+        }
+
+        const response = await this.request({
+            path: `/1/object/ezsignfolder/{pkiEzsignfolderID}/getFormsData`.replace(`{${"pkiEzsignfolderID"}}`, encodeURIComponent(String(requestParameters.pkiEzsignfolderID))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.BlobApiResponse(response);
+    }
+
+    /**
+     * ## ⚠️EARLY ADOPTERS WARNING  ### This endpoint is not officially released. Its definition might still change and it might not be available in every environment and region.
+     * Retrieve an existing Ezsignfolder\'s forms data
+     */
+    async ezsignfolderGetFormsDataV1(requestParameters: EzsignfolderGetFormsDataV1Request, initOverrides?: RequestInit): Promise<Blob> {
+        const response = await this.ezsignfolderGetFormsDataV1Raw(requestParameters, initOverrides);
+        return await response.value();
     }
 
     /**
